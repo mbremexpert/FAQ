@@ -3,254 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ avec Catégories et Recherche</title>
+    <title>FAQ avec barre de recherche</title>
     <style>
         /* Style global */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #1a202c; /* Bleu foncé pour le fond de la page */
-            color: #f0f0f0; /* Texte clair pour le contraste */
-        }
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a202c; /* Bleu foncé pour le fond de la page */
+    color: #f0f0f0; /* Texte clair pour le contraste */
+}
 
-        /* En-tête */
-        header {
-            background-color: #0d47a1; /* Bleu foncé intense */
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
+/* En-tête */
+header {
+    background-color: #0d47a1; /* Bleu foncé intense */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
 
-        /* Conteneur principal */
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
+/* Conteneur principal */
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
 
-        /* Barre de recherche */
-        .search-bar {
-            margin-top: 20px;
-            position: relative;
-        }
-        .search-bar input {
-            width: 100%;
-            padding: 15px;
-            font-size: 16px;
-            border: none;
-            border-radius: 25px;
-            outline: none;
-            background-color: #2c3e50; /* Bleu foncé pour le champ */
-            color: #f0f0f0;
-            transition: 0.3s;
-        }
-        .search-bar input::placeholder {
-            color: #bbb;
-        }
-        .search-bar input:focus {
-            background-color: #34495e; /* Légèrement plus clair au focus */
-            box-shadow: 0 0 10px rgba(13, 71, 161, 0.5);
-        }
+/* Barre de recherche */
+.search-bar {
+    margin-bottom: 20px;
+    position: relative;
+}
+.search-bar input {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    background-color: #2c3e50; /* Bleu foncé pour le champ */
+    color: #f0f0f0;
+    transition: 0.3s;
+}
+.search-bar input::placeholder {
+    color: #bbb;
+}
+.search-bar input:focus {
+    background-color: #34495e; /* Légèrement plus clair au focus */
+    box-shadow: 0 0 10px rgba(13, 71, 161, 0.5);
+}
 
-        /* Liste des catégories */
-        .categories {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        .category {
-            flex: 1 1 calc(48% - 10px);
-            background-color: #0d47a1;
-            color: #fff;
-            text-align: center;
-            padding: 15px;
-            margin: 5px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .category:hover {
-            background-color: #1565c0;
-        }
+/* FAQ Items */
+.faq-item {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.faq-item h3 {
+    background-color: #0d47a1; /* Bleu foncé intense */
+    color: #fff;
+    margin: 0;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.faq-item h3:hover {
+    background-color: #1565c0; /* Plus clair au survol */
+}
+.faq-item p {
+    padding: 15px;
+    margin: 0;
+    background-color: #2c3e50; /* Bleu foncé pour les phrases */
+    color: #f0f0f0;
+    line-height: 1.6;
+    display: none;
+    animation: slideDown 0.3s ease-out;
+}
+.faq-item.active p {
+    display: block;
+}
 
-        /* Questions */
-        .faq-category {
-            display: none;
-            margin-top: 20px;
-        }
-        .faq-category.active {
-            display: block;
-        }
-        .faq-item {
-            margin-bottom: 15px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .faq-item h3 {
-            background-color: #0d47a1; /* Bleu foncé intense */
-            color: #fff;
-            margin: 0;
-            padding: 15px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .faq-item h3:hover {
-            background-color: #1565c0; /* Plus clair au survol */
-        }
-        .faq-item p {
-            padding: 15px;
-            margin: 0;
-            background-color: #2c3e50; /* Bleu foncé pour les phrases */
-            color: #f0f0f0;
-            line-height: 1.6;
-            display: none;
-            animation: slideDown 0.3s ease-out;
-        }
-        .faq-item.active p {
-            display: block;
-        }
+/* Animation */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        /* Animation */
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+/* Responsive design */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2em;
+    }
+    .faq-item h3 {
+        font-size: 1.2em;
+    }
+    .faq-item p {
+        font-size: 0.9em;
+    }
+}
 
-        /* Responsive design */
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2em;
-            }
-            .faq-item h3 {
-                font-size: 1.2em;
-            }
-            .faq-item p {
-                font-size: 0.9em;
-            }
-        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>FAQ - Questions Fréquemment Posées</h1>
-    </header>
+    <div class="search-bar">
+        <input type="text" id="faqSearch" placeholder="Recherchez une question...">
+    </div>
 
-    <div class="container">
-        <!-- Barre de recherche -->
-        <div class="search-bar">
-            <input type="text" id="faqSearch" placeholder="Recherchez une question...">
+    <div id="faq">
+        <div class="faq-item">
+            <h3>Question 1 : Comment utiliser ce site ?</h3>
+            <p>Pour utiliser ce site, naviguez dans les différentes sections via le menu principal.</p>
         </div>
-
-        <!-- Questions par catégorie -->
-        <div id="retraite" class="faq-category">
-            <div class="faq-item">
-                <h3>À quel âge puis-je prendre ma retraite ?</h3>
-                <p>Vous pouvez prendre votre retraite à partir de 62 ans, sous certaines conditions.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Comment calculer ma pension ?</h3>
-                <p>Votre pension est calculée en fonction de vos trimestres cotisés et de votre salaire moyen.</p>
-            </div>
+        <div class="faq-item">
+            <h3>Question 2 : Comment contacter le support ?</h3>
+            <p>Vous pouvez contacter le support en envoyant un email à support@example.com.</p>
         </div>
-
-        <div id="carriere" class="faq-category">
-            <div class="faq-item">
-                <h3>Comment déclarer mes années travaillées à l'étranger ?</h3>
-                <p>Vous devez fournir les justificatifs de vos activités professionnelles dans le pays concerné.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Puis-je cumuler mes droits en France et à l'étranger ?</h3>
-                <p>Oui, sous réserve d'accords bilatéraux entre les pays.</p>
-            </div>
-        </div>
-
-        <div id="invalidite" class="faq-category">
-            <div class="faq-item">
-                <h3>Comment obtenir une pension d'invalidité ?</h3>
-                <p>Vous devez déposer une demande auprès de votre caisse d'assurance maladie.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Puis-je cumuler invalidité et retraite ?</h3>
-                <p>Dans certains cas, vous pouvez cumuler votre pension d'invalidité avec une retraite anticipée.</p>
-            </div>
-        </div>
-
-        <div id="militaire" class="faq-category">
-            <div class="faq-item">
-                <h3>Quels sont les droits à la retraite pour les militaires ?</h3>
-                <p>Les militaires peuvent bénéficier de droits spécifiques selon leur durée de service.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Comment faire valoir mes années de service ?</h3>
-                <p>Vous devez contacter votre service des pensions pour entamer les démarches.</p>
-            </div>
-        </div>
-
-        <!-- Liste des catégories -->
-        <div class="categories">
-            <div class="category" data-category="retraite">Retraite</div>
-            <div class="category" data-category="carriere">Carrière à l'étranger</div>
-            <div class="category" data-category="invalidite">Invalidité</div>
-            <div class="category" data-category="militaire">Militaire</div>
+        <div class="faq-item">
+            <h3>Question 3 : Comment réinitialiser mon mot de passe ?</h3>
+            <p>Cliquez sur "Mot de passe oublié" sur la page de connexion pour réinitialiser votre mot de passe.</p>
         </div>
     </div>
 
     <script>
-        // Gestion des catégories
-        const categories = document.querySelectorAll('.category');
-        const faqCategories = document.querySelectorAll('.faq-category');
+        // Fonctionnalité de recherche
         const searchInput = document.getElementById('faqSearch');
+        const faqItems = document.querySelectorAll('.faq-item');
 
-        categories.forEach(category => {
-            category.addEventListener('click', () => {
-                const selectedCategory = category.getAttribute('data-category');
-
-                // Masquer toutes les catégories
-                faqCategories.forEach(faq => faq.classList.remove('active'));
-
-                // Afficher la catégorie sélectionnée
-                document.getElementById(selectedCategory).classList.add('active');
-
-                // Réinitialiser la recherche
-                searchInput.value = '';
-                filterQuestions('');
-            });
-        });
-
-        // Recherche dans les questions
         searchInput.addEventListener('input', () => {
             const query = searchInput.value.toLowerCase();
-            filterQuestions(query);
-        });
-
-        function filterQuestions(query) {
-            const activeCategory = document.querySelector('.faq-category.active');
-            if (!activeCategory) return;
-
-            const questions = activeCategory.querySelectorAll('.faq-item');
-            questions.forEach(item => {
-                const questionText = item.querySelector('h3').textContent.toLowerCase();
-                if (questionText.includes(query)) {
+            faqItems.forEach(item => {
+                const question = item.querySelector('h3').textContent.toLowerCase();
+                if (question.includes(query)) {
                     item.style.display = 'block';
                 } else {
                     item.style.display = 'none';
                 }
             });
-        }
+        });
+
+        // Fonctionnalité d'affichage des réponses
+        faqItems.forEach(item => {
+            const question = item.querySelector('h3');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
     </script>
 </body>
 </html>

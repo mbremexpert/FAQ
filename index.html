@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ avec barre de recherche</title>
+    <style>
+        /* Styles basiques pour la FAQ */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .faq-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+        }
+        .faq-item h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .faq-item p {
+            margin: 5px 0 0;
+            display: none; /* Cacher la réponse par défaut */
+        }
+        .faq-item.active p {
+            display: block; /* Afficher la réponse lorsqu'elle est active */
+        }
+    </style>
+</head>
+<body>
+    <div class="search-bar">
+        <input type="text" id="faqSearch" placeholder="Recherchez une question...">
+    </div>
+
+    <div id="faq">
+        <div class="faq-item">
+            <h3>Question 1 : Comment utiliser ce site ?</h3>
+            <p>Pour utiliser ce site, naviguez dans les différentes sections via le menu principal.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Question 2 : Comment contacter le support ?</h3>
+            <p>Vous pouvez contacter le support en envoyant un email à support@example.com.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Question 3 : Comment réinitialiser mon mot de passe ?</h3>
+            <p>Cliquez sur "Mot de passe oublié" sur la page de connexion pour réinitialiser votre mot de passe.</p>
+        </div>
+    </div>
+
+    <script>
+        // Fonctionnalité de recherche
+        const searchInput = document.getElementById('faqSearch');
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            faqItems.forEach(item => {
+                const question = item.querySelector('h3').textContent.toLowerCase();
+                if (question.includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Fonctionnalité d'affichage des réponses
+        faqItems.forEach(item => {
+            const question = item.querySelector('h3');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+[
+    {
+        "question": "Comment utiliser ce site ?",
+        "answer": "Pour utiliser ce site, naviguez dans les différentes sections via le menu principal."
+    },
+    {
+        "question": "Comment contacter le support ?",
+        "answer": "Vous pouvez contacter le support en envoyant un email à support@example.com."
+    },
+    {
+        "question": "Comment réinitialiser mon mot de passe ?",
+        "answer": "Cliquez sur 'Mot de passe oublié' sur la page de connexion pour réinitialiser votre mot de passe."
+    }
+]

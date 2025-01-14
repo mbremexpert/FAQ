@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ avec Catégories</title>
+    <title>FAQ avec Catégories et Recherche</title>
     <style>
         /* Style global */
         body {
@@ -55,6 +55,27 @@
             background-color: #1565c0;
         }
 
+        /* Barre de recherche */
+        .search-bar {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            background-color: #fff;
+            color: #333;
+            transition: 0.3s;
+        }
+        .search-bar input:focus {
+            border-color: #0d47a1;
+            box-shadow: 0 0 10px rgba(13, 71, 161, 0.5);
+        }
+
         /* Questions */
         .faq-category {
             display: none;
@@ -83,9 +104,10 @@
         .faq-item p {
             padding: 15px;
             margin: 0;
-            display: none;
             background-color: #fff;
+            color: #333;
             line-height: 1.6;
+            display: none;
         }
         .faq-item.active p {
             display: block;
@@ -104,6 +126,11 @@
             <div class="category" data-category="carriere">Carrière à l'étranger</div>
             <div class="category" data-category="invalidite">Invalidité</div>
             <div class="category" data-category="militaire">Militaire</div>
+        </div>
+
+        <!-- Barre de recherche -->
+        <div class="search-bar">
+            <input type="text" id="faqSearch" placeholder="Recherchez une question...">
         </div>
 
         <!-- Questions par catégorie -->
@@ -156,6 +183,7 @@
         // Gestion des catégories
         const categories = document.querySelectorAll('.category');
         const faqCategories = document.querySelectorAll('.faq-category');
+        const searchInput = document.getElementById('faqSearch');
 
         categories.forEach(category => {
             category.addEventListener('click', () => {
@@ -166,17 +194,33 @@
 
                 // Afficher la catégorie sélectionnée
                 document.getElementById(selectedCategory).classList.add('active');
+
+                // Réinitialiser la recherche
+                searchInput.value = '';
+                filterQuestions('');
             });
         });
 
-        // Afficher/Masquer les réponses
-        const faqItems = document.querySelectorAll('.faq-item h3');
-        faqItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const parent = item.parentElement;
-                parent.classList.toggle('active');
-            });
+        // Recherche dans les questions
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            filterQuestions(query);
         });
+
+        function filterQuestions(query) {
+            const activeCategory = document.querySelector('.faq-category.active');
+            if (!activeCategory) return;
+
+            const questions = activeCategory.querySelectorAll('.faq-item');
+            questions.forEach(item => {
+                const questionText = item.querySelector('h3').textContent.toLowerCase();
+                if (questionText.includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
     </script>
 </body>
 </html>

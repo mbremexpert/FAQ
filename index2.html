@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ : Mako logiciels</title>
+    <style>
+        /* Style global */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a202c; /* Bleu foncé pour le fond de la page */
+            color: #f0f0f0; /* Texte clair pour le contraste */
+        }
+
+        /* En-tête principal */
+        header {
+            background-color: #0d47a1; /* Bleu foncé intense */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            font-weight: bold;
+        }
+
+        /* Conteneur principal */
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Barre de recherche */
+        .search-bar {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            outline: none;
+            background-color: #2c3e50; /* Bleu foncé pour le champ */
+            color: #f0f0f0;
+            transition: 0.3s;
+        }
+        .search-bar input::placeholder {
+            color: #bbb;
+        }
+        .search-bar input:focus {
+            background-color: #34495e; /* Légèrement plus clair au focus */
+            box-shadow: 0 0 10px rgba(13, 71, 161, 0.5);
+        }
+
+        /* FAQ Items */
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .faq-item h3 {
+            background-color: #0d47a1; /* Bleu foncé intense */
+            color: #fff;
+            margin: 0;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: 0.3s;
+        }
+        .faq-item h3:hover {
+            background-color: #1565c0; /* Plus clair au survol */
+        }
+        .faq-item p {
+            padding: 15px;
+            margin: 0;
+            background-color: #2c3e50; /* Bleu foncé pour les phrases */
+            color: #f0f0f0;
+            line-height: 1.6;
+            display: none;
+            animation: slideDown 0.3s ease-out;
+        }
+        .faq-item.active p {
+            display: block;
+        }
+
+        /* Animation */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .faq-item h3 {
+                font-size: 1.2em;
+            }
+            .faq-item p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<header>
+    <h1>FAQ : Mako logiciels</h1>
+</header>
+<div class="search-bar">
+    <input type="text" id="faqSearch" placeholder="Recherchez une question...">
+</div>
+
+<div id="faq">
+    <div class="faq-item">
+        <h3>Quels sont les documents et infos essentiels pour réaliser un audit ?</h3>
+        <p>Situation maritale Nombre d’enfants : Impact sur les majorations enfants et droits à réversion</p>
+        <p>Appels de cotisations / Fiche de paie / Profession exercée et dans quel cadre juridique : Impact sur la rémunération à retenir </p>
+        <p>Relevé de situation individuelle + Relevé régime général : faire un point sur la carrière : trou d’activité, apprentissage, service militaire…</p>
+    </div>
+    <div class="faq-item">
+        <h3>Quelle rémunération à retenir pour la projection ?</h3>
+        <p>Salarié : Salaire brut, Avantages en nature, Indemnités de congés payés, Indemnités de licenciement au delà d’un certain plafond</p>
+        <p>Indépendant : Rémunération imposable, Cotisations facultatives, Avantages en nature, Dividendes soumis aux CS</p>
+    </div>
+    <div class="faq-item">
+        <h3>Quels sont les différents types de trimestre ?</h3>
+        <p>Les trimestres cotisés: Trimestres obtenus par le versement de cotisations prélevées sur les salaires  </p>
+        <p>Les trimestres assimilés : Correspondent aux périodes d'interruption de travail : maladie, maternité, accident du travail, chômage, 
+            service national…  </p>
+        <p>Les trimestres de majoration : Trimestres obtenus en contrepartie de la naissance et/ou de l’éducation d’un enfant ou
+            par un assuré qui dépasse l’âge du taux plein automatique  </p>
+        <p>L’essentiel :  1- La notion de trimestres validés :  Elle correspond à la somme des trimestres cotisés, assimilés et de majoration. Ces
+            trimestres seront comparés à la durée de référence applicable à l’assuré.
+            2- A savoir : Il est indispensable de bien savoir distinguer les types de trimestre car ils ne génèrent pas les
+            mêmes droits. A titre d’exemple, tous les types de trimestre ne sont pas retenus pour vérifier l’éligibilité au départ
+            anticipé carrière longue. </p>                
+    </div>
+    <div class="faq-item">
+        <h3>Faut-il mettre le salaire "recalculé" pour la retraite progressive ? Exemple, je gagne 214 905€ --> Je dois mettre 128 943€ s'il est à 60%. </h3>
+        <p>Il faut bien mettre le salaire recalculé. </p>
+    </div>
+    <div class="faq-item">
+        <h3>Retraite progressive : Si la personne cotise sur la base d'un temps plein, on laisse le salaire à 100 % ? </h3>
+        <p>Malheureusement Mako ne permet pas d’effectuer la saisie d’un temps plein dans le cadre de la retraite progressive.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Mako tient-il en compte l’exonération de charges MSA spécifique au Madelin agricole ?</h3>
+        <p>Mako prend en compte l'exonération des charges MSA spécifique au dispositif Madelin agricole. Dans l'exemple présenté, mon client, agriculteur, 
+            dispose d'un contrat Madelin avec un versement annuel de 5 000 €, montant qui n'est pas inclus dans l'assiette des charges sociales.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Est-il possible de faire des simulations en superposant une société holding au dessus de la société d'exploitation ?  </h3>
+        <p>Cela n’est pas possible, nous ne traitons pas la gestion du multi-société dans Mako.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Mon client salarié bénéficie à ce jour du taux réduit des cotisation (réduction fillon) (notamment cotisation maladie à 7 au lieu de 13.5 et Allocation Familiale à 3.45 au lieu de 5.25). Peut-on le paramétrer ?  </h3>
+        <p>Vous pouvez paramétrer le taux réduit des cotisations via l’onglet paramétrage de la fiche de paie et réduction générale. Il faut remplir la condition suivante : le salaire doit être inférieur à 1,6 fois le Smic brut.
+
+            Un salaire est concerné s'il est dans l'un des cas suivants :
+            
+            Son montant "horaire brut" est inférieur à 19,01 €
+            Son montant mensuel brut est inférieur à 2 882,88 €
+            Son montant annuel brut est inférieur à 34 595 €
+            
+            https://entreprendre.service-public.fr/vosdroits/F24542?profil=tout
+                        </p>
+    </div>
+    <div class="faq-item">
+        <h3>Est ce mako calcule les droits du régime des mines ?  </h3>
+        <p>Mako n’intègre pas le régime de retraite des personnels des mines.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Dans le résultat avant IS à saisir : quelles sont les charges à retirer du résultat BNC ? Cotisations sociales obligatoires, facultatives (PEE/PERCO) ? Rajouter la CSG déductible ?   </h3>
+        <p>Le résultat avant IS est la CA moins les charges d’exploitations.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Dans le contexte fiscal, est-il possible de cocher la case pour utiliser le plafond PER du conjoint ?    </h3>
+        <p>	Il n’y pas de case à cocher, il faut transférer les sommes du conjoint.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Pour la saisie du PEE/PERECO : comment savoir si la CSG est précomptée ?  </h3>
+        <p>La CSG est précomptée sur les salariés mais pas sur les TNS</p>
+    </div>
+    <div class="faq-item">
+        <h3>Comment paramétrer les résultats de l'entreprise sans avoir à saisir le montant de dividendes bruts à verser ? En effet, mon objectif est de savoir l'optimum rémunération/dividendes, compte tenu d'un résultat d'entreprise déterminé.  </h3>
+        <p>Pas possible dans l’audit complet, il faut fixer un montant de dividende pour remonter au résultat recherché.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Le RIS de ma cliente n'indique pas le montant de rémunération perçue pour ses années de médecin libéral. Ou peut on trouver ces informations ? Je dois demander les liasses fiscales de chaque année ?   </h3>
+        <p>Ces informations ne sont pas utiles car nous récupérons les points sur le RIS.</p>
+    </div>
+    <div class="faq-item">
+        <h3>600 smic horaire en 1 jour permettent de valider 4 trimestres ?  </h3>
+        <p>NON, dans la mesure où la cotisation d’assurance vieillesse de base est limitée au PMSS soit 3 925 €, le salaire retenu est
+            également limité au PMSS. Il faut donc travailler environ 2 mois pour valider 4 trimestres.</p>
+    </div>
+    <div class="faq-item">
+        <h3> Carrière étranger Europe :   </h3>
+        <p>Double calcul : 1 - Calcul de la retraite nationale : La caisse calcule la pension sans tenir compte des trimestres validés au titre des périodes acquises à
+            l’étranger.
+            2- Calcul de la retraite communautaire : La caisse calcule la pension en tenant compte des trimestres validés au titre des périodes
+            acquises à l’étranger. Le montant trouvé est ensuite proratisé en fonction du nombre de trimestres acquis en France sur la totalité
+            des trimestres. Attention à la suisse.
+            Une fois les deux retraites calculées, la caisse compare les montants et verse la pension la plus élevée.
+            !!! MAKO n’intègre pas le calcul des règlements communautaires / Alternative MAKO :trimestres spécifiques / 90 jours = 1 trimestre
+            Conversion 1 trimestre / Régime fondé sur 5 jours = 66 jours / Régime fondé sur 6 jours = 78 jours / Régime fondé sur 7 jours = 90 jours
+        </p>
+    </div>
+    <div class="faq-item">
+        <h3>Les trimestres cotisés : l’apprentissage </h3>
+        <p>Avant 2014 : Les cotisations d’assurance
+            vieillesse étaient calculées sur
+            une base forfaitaire égale à un
+            pourcentage du SMIC multipliée
+            par un nombre d’heures par
+            mois. Il convenait ensuite de
+            déduire de cette assiette
+            minimale légale une fraction
+            exonérée égale à 11% du Smic.
+            Après 2014 : Depuis le 1er janvier 2014, le
+            calcul de la cotisation
+            d’assurance vieillesse des
+            apprentis s’effectue sur
+            l’assiette réelle, c’est-à-dire
+            sur la rémunération versée à
+            l’apprenti et non plus sur une
+            base forfaitaire.
+        </p>
+    </div>
+    <div class="faq-item">
+        <h3>Les trimestres assimilés : le chômage </h3>
+        <p> 50 jours de chômage indemnisé sur l’année civile = 1 trimestre. Le logiciel ne contient aucune limitation. Chaque période de 50 jours valide un
+            trimestre. Il faut donc établir soi même les limites dans le cadre d’une projection. Le chômage indemnisé permet d’acquérir des
+            points à l’AGIRC-ARRCO (https://www.servicepublic.fr/particuliers/vosdroits/F2064)</p>
+    </div>
+    <div class="faq-item">
+        <h3>Les trimestres assimilés : le service militaire</h3>
+        <p> Les périodes de service militaire sont retenues de date à date par périodes de 90 jours en
+            totalisant tous les jours de service. Le résultat est arrondi au chiffre entier supérieur. 365
+            jours de service militaire valide donc 5 trimestres.   /  Les trimestres assimilés sont validés dans l'année civile où finit chaque période de 90
+            jours. Une période démarrant en novembre et s’arrêtant en janvier va valider un trimestre
+            sur l’année du mois de janvier.   / Le trimestre supplémentaire résultant de l'application de la règle d'arrondi est reporté
+            soit au début, soit à la fin de la période validée. La solution la plus favorable pour l'assuré
+            est retenue.   /   Le cas des objecteurs de conscience
+            L’objection de conscience fait parti du service
+            national et permet donc à ce titre de valider des
+            trimestres dans les mêmes conditions que le
+            service militaire.
+             </p>
+    </div>
+    <div class="faq-item">
+        <h3>Trimestres et enfant </h3>
+        <p> Naissance d’un enfant :Trimestres pour congé maternité / AVPF / Trimestres pour congé parental / Majoration de trimestres pour enfant</p>
+    </div>
+    <div class="faq-item">
+        <h3>Trimestres et enfant / Fonction publique</h3>
+        <p> Enfant nés avant le 1er janvier 200 : La bonification de 4 trimestres est attribuée par le régime des fonctionnaires à condition
+            que l’assuré est interrompu ou réduit son activité d’une durée continue au moins égale à
+            deux mois. Il n’est pas nécessaire que l’assuré possède la qualité de fonctionnaire.
+            Enfant nés à compter du 1er janvier 2004 : La majoration de 2 trimestres est attribuée par le régime des fonctionnaires si l’enfant
+            est né postérieurement au recrutement dans la fonction publique.
+            Majoration enfants et MAKO Le logiciel intègre les majorations au régime général par défaut. Il faut donc les modifier manuellement dans l’onglet paramètres / majorations si vous estimez que le régime des fonctionnaires est compétent.
+        </p>
+    </div>
+    <div class="faq-item">
+        <h3>Majoration de trimestre pour activité au-delà de 67 ans </h3>
+        <p> Majoration pour activité au-dela de l'age du taux plein : Une majoration est accordée à l’assuré qui continue d’exercer une activité au-delà de
+            l'âge du taux plein à condition que sa durée d’assurance cotisée, tous régimes de
+            retraite de base confondus, est inférieure à la durée d'assurance maximale nécessaire
+            pour percevoir une pension entière. Le taux de cette majoration est fixé à 2,5% par trimestre cotisé. Cependant, la
+            majoration obtenue ne peut en aucun cas permettre de dépasser la durée maximale
+            d'assurance cotisée nécessaire pour percevoir une pension entière. Exemple
+            Un assuré a cotisé 120 trimestres à l'âge de 68
+            ans. En liquidant à 68 ans, il bénéficie d'une
+            majoration de 10% de ses trimestres (4 trimestres
+            x 2,5%), soit 120 x 10% = 12 trimestres
+            supplémentaires. Son nombre total de trimestres
+            sera égal à 132 à 68 ans.
+              </p>
+    </div>
+    <div class="faq-item">
+        <h3>La carrière longue : les périodes cotisées </h3>
+        <p> Périodes cotisées Prise en compte
+            Périodes de cotisation à un régime de retraite Français En totalité / 
+            Périodes d’assurance volontaire vieillesse En totalité / 
+            Périodes à l’étranger si un accord international s’applique En totalité / 
+            Service national 4 trimestres max / 
+            Chômage indemnisé 4 trimestres max / 
+            Maladie, accident du travail 4 trimestres max / 
+            Invalidité 2 trimestres max / 
+            Maternité En totalité / 
+            AVPF 4 trimestres max / 
+            Trimestres de majoration pour enfant Exclus / 
+            Rachat de trimestres à compter de 2008 Exclus / Intégration dans MAKO
+            ❑ Le logiciel comptabilise les trimestres dans
+            les limites décrites dans le tableau et
+            déclenche éventuellement la carrière longue.
+            ❑ Attention à bien vérifier la répartition des
+            trimestres avec le relevé du régime général
+            lorsque des trimestres cotisés et assimilés
+            sont cumulés sur une même année.</p>
+    </div>
+</div>
+
+<script>
+    // Fonctionnalité de recherche
+    const searchInput = document.getElementById('faqSearch');
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+        faqItems.forEach(item => {
+            const question = item.querySelector('h3').textContent.toLowerCase();
+            if (question.includes(query)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+
+    // Fonctionnalité d'affichage des réponses
+    faqItems.forEach(item => {
+        const question = item.querySelector('h3');
+        question.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+</script>
+</body>
+</html>

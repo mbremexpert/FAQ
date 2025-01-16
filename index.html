@@ -576,9 +576,9 @@
         const faqItems = document.querySelectorAll('.faq-item');
 
         searchInput.addEventListener('input', () => {
-            const query = searchInput.value.toLowerCase();
+            const query = searchInput.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             faqItems.forEach(item => {
-                const question = item.querySelector('h3').textContent.toLowerCase();
+                const question = item.querySelector('h3').textContent.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                 if (question.includes(query)) {
                     item.style.display = 'block';
                 } else {

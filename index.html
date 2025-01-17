@@ -560,22 +560,27 @@
     </div>
 
     <script>
-        // Fonctionnalité de recherche
+        // Fonctionnalité de recherche avancée
         const searchInput = document.getElementById('faqSearch');
         const faqItems = document.querySelectorAll('.faq-item');
-
+    
         searchInput.addEventListener('input', () => {
+            // Normalisation de la requête de recherche
             const query = searchInput.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            const keywords = query.split(/\s+/).filter(word => word.length > 0); // Séparation en mots-clés
+    
             faqItems.forEach(item => {
+                // Normalisation de la question de la FAQ
                 const question = item.querySelector('h3').textContent.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-                if (question.includes(query)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
+    
+                // Vérification de la présence de tous les mots-clés
+                const matches = keywords.every(keyword => question.includes(keyword));
+    
+                // Affichage ou masquage de l'élément
+                item.style.display = matches ? 'block' : 'none';
             });
         });
-
+    
         // Fonctionnalité d'affichage des réponses
         faqItems.forEach(item => {
             const question = item.querySelector('h3');
